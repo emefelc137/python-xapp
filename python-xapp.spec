@@ -1,15 +1,16 @@
-%global sum Python bindings for xapps
+%define module xapp
 
 Name:		python-xapp
-Version:	3.0.2
+Version:	3.0.3
 Release:	1
-Summary:	%{sum}
+Summary:	Python bindings for xapps
 License:	GPLv2
 Group:		Development/Python
 URL:		https://github.com/linuxmint/python-xapp
 Source0:	https://github.com/linuxmint/python3-xapp/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch:	noarch
+
 BuildSystem:	meson
+BuildArch:	noarch
 BuildRequires:	gettext
 BuildRequires:	meson
 BuildRequires:	ninja
@@ -18,14 +19,14 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
-Requires:		python%{pyver}dist(psutil)
+Requires:	python%{pyver}dist(psutil)
 
 %description
-%{sum}.
+Python bindings for xapps.
 
 %install -a
 %find_lang %{name}
 
 %files -f %{name}.lang
 %license COPYING
-%{python_sitelib}/xapp/
+%{python_sitelib}/%{module}
